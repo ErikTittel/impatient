@@ -5,14 +5,20 @@ import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class GameTest {
 
     private final Game game = new Game(2);
 
     @Test
     public void addOnePiece() {
-        Piece piece = new Piece(1);
-        Position position = new Position(0, 0);
+        Set<Position> parts = new HashSet<>();
+        parts.add(new Position(0, 0, 0));
+        parts.add(new Position(1, 0, 0));
+        Piece piece = new Piece(parts);
+        Position position = new Position(0, 0, 0);
         game.addPiece(piece, position);
 
         boolean solved = game.solve();
@@ -22,8 +28,18 @@ public class GameTest {
 
     @Test
     public void addTwoPiecesToCoverTheWholeBoard() {
-        game.addPiece(new Piece(2), new Position(0, 0));
-        game.addPiece(new Piece(2), new Position(0, 1));
+        Set<Position> parts = new HashSet<>();
+        parts.add(new Position(0, 0, 0));
+        parts.add(new Position(1, 0, 0));
+        Piece piece = new Piece(parts);
+        Position position = new Position(0, 0, 0);
+        game.addPiece(piece, position);
+        Set<Position> parts2 = new HashSet<>();
+        parts2.add(new Position(0, 0, 0));
+        parts2.add(new Position(1, 0, 0));
+        Piece piece2 = new Piece(parts2);
+        Position position2 = new Position(0, 1, 0);
+        game.addPiece(piece2, position2);
 
         boolean solved = game.solve();
 
