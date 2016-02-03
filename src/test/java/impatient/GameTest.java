@@ -14,12 +14,11 @@ public class GameTest {
 
     @Test
     public void addOnePiece() {
-        Set<Position> parts = new HashSet<>();
-        parts.add(new Position(0, 0, 0));
-        parts.add(new Position(1, 0, 0));
-        Piece piece = new Piece(parts);
-        Position position = new Position(0, 0, 0);
-        game.addPiece(piece, position);
+        Set<Vector> parts = new HashSet<>();
+        parts.add(new Vector(0, 0, 0));
+        parts.add(new Vector(1, 0, 0));
+        Piece piece = new Piece(parts).position(new Vector(0, 0, 0));
+        game.addPiece(piece);
 
         boolean solved = game.solve();
 
@@ -28,18 +27,16 @@ public class GameTest {
 
     @Test
     public void addTwoPiecesToCoverTheWholeBoard() {
-        Set<Position> parts = new HashSet<>();
-        parts.add(new Position(0, 0, 0));
-        parts.add(new Position(1, 0, 0));
-        Piece piece = new Piece(parts);
-        Position position = new Position(0, 0, 0);
-        game.addPiece(piece, position);
-        Set<Position> parts2 = new HashSet<>();
-        parts2.add(new Position(0, 0, 0));
-        parts2.add(new Position(1, 0, 0));
-        Piece piece2 = new Piece(parts2);
-        Position position2 = new Position(0, 1, 0);
-        game.addPiece(piece2, position2);
+        Set<Vector> parts = new HashSet<>();
+        parts.add(new Vector(0, 0, 0));
+        parts.add(new Vector(1, 0, 0));
+        Piece piece = new Piece(parts).position(new Vector(0, 0, 0));
+        game.addPiece(piece);
+        Set<Vector> parts2 = new HashSet<>();
+        parts2.add(new Vector(0, 0, 0));
+        parts2.add(new Vector(1, 0, 0));
+        Piece piece2 = new Piece(parts2).position(new Vector(0, 1, 0));
+        game.addPiece(piece2);
 
         boolean solved = game.solve();
 

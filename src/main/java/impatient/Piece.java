@@ -1,35 +1,34 @@
 package impatient;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Piece {
 
-    public Set<Position> parts;
+    private Set<Vector> parts;
+    private Vector position;
 
-    public Piece(Set<Position> parts) {
+    public Piece(Set<Vector> parts) {
         if (parts == null || parts.isEmpty()) {
             throw new IllegalArgumentException("A piece needs some parts");
         }
-        this.parts = parts;
+        this.parts = new HashSet<>(parts);
     }
 
     public boolean isSameForm(Piece other) {
         return parts.equals(other.parts);
     }
 
-    public Set<Position> getParts() {
+    public Set<Vector> getParts() {
         return parts;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        // each instance has it's own identity
-        return super.equals(o);
+    public Vector getPosition() {
+        return position;
     }
 
-    @Override
-    public int hashCode() {
-        // each instance has it's own identity
-        return super.hashCode();
+    public Piece position(Vector position) {
+        this.position = position;
+        return this;
     }
 }

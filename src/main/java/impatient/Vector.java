@@ -1,12 +1,12 @@
 package impatient;
 
-public class Position {
+public class Vector {
 
     public int x;
     public int y;
     public int z;
 
-    public Position(int x, int y, int z) {
+    public Vector(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -17,9 +17,9 @@ public class Position {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Position position = (Position) o;
+        Vector vector = (Vector) o;
 
-        return x == position.x && y == position.y && z == position.z;
+        return x == vector.x && y == vector.y && z == vector.z;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Position {
         return result;
     }
 
-    public Position plus(Position addend) {
-        return new Position(x + addend.x, y + addend.y, z + addend.z);
+    public Vector add(Vector addend) {
+        return new Vector(x + addend.x, y + addend.y, z + addend.z);
     }
 }

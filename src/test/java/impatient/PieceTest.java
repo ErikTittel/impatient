@@ -23,8 +23,8 @@ public class PieceTest {
 
     @Test
     public void pieceSameFormOnePart() {
-        Set<Position> parts = new HashSet<>();
-        parts.add(new Position(0, 0, 0));
+        Set<Vector> parts = new HashSet<>();
+        parts.add(new Vector(0, 0, 0));
         Piece piece1 = new Piece(parts);
         Piece piece2 = new Piece(parts);
 
@@ -33,9 +33,9 @@ public class PieceTest {
 
     @Test
     public void pieceSameFormTwoParts() {
-        Set<Position> parts = new HashSet<>();
-        parts.add(new Position(0, 0, 0));
-        parts.add(new Position(1, 0, 0));
+        Set<Vector> parts = new HashSet<>();
+        parts.add(new Vector(0, 0, 0));
+        parts.add(new Vector(1, 0, 0));
         Piece piece1 = new Piece(parts);
         Piece piece2 = new Piece(parts);
 
@@ -45,10 +45,10 @@ public class PieceTest {
     @Test
     @Ignore("handle shifted pieces")
     public void pieceSameFormOnePartShifted() {
-        Set<Position> parts1 = new HashSet<>();
-        parts1.add(new Position(0, 0, 0));
-        Set<Position> parts2 = new HashSet<>();
-        parts2.add(new Position(1, 0, 0));
+        Set<Vector> parts1 = new HashSet<>();
+        parts1.add(new Vector(0, 0, 0));
+        Set<Vector> parts2 = new HashSet<>();
+        parts2.add(new Vector(1, 0, 0));
         Piece piece1 = new Piece(parts1);
         Piece piece2 = new Piece(parts2);
 
